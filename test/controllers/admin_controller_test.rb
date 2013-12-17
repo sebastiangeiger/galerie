@@ -1,14 +1,15 @@
 require 'test_helper'
 
-class AdminControllerTest < ActionController::TestCase
-  test "anonymous user should get redirected to sign in form" do
+describe AdminController, "Authentication" do
+  it "denies anonymous users" do
     get :index
-    assert_response :redirect
+    response.must_be :redirect?
+    response.redirect_url.must_match /\/users\/sign_in$/
   end
 
-  test "logged in user should get index" do
+  it "lets signed in users through" do
     sign_in FactoryGirl.create(:user)
     get :index
-    assert_response :success
+    response.must_be :success?
   end
 end
