@@ -39,6 +39,7 @@ group :test do
   gem "database_cleaner", "~> 1.2.0"
   gem "factory_girl_rails", "~> 4.3.0"
   gem "minitest-rails", "~> 0.9.2"
+  gem "turn"
 end
 
 # Use ActiveModel has_secure_password
