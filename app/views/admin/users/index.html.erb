@@ -1,0 +1,17 @@
+<h1>Users</h1>
+<table id="users">
+  <thead>
+  <tr>
+    <th> <%= t "user.email" %> </th>
+    <th> <%= t "user.name" %> </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
