@@ -7,5 +7,7 @@ Feature: User management
     Given I am signed in as an owner
     When I go to the user management page
     Then I should see 1 user
-    And I should see my email address
-    And I should see my name
+    And I should see my email address in the users table
+    And I should see my name in the users table
+    And my role should be "Owner"
+    And my status should be "Confirmed"

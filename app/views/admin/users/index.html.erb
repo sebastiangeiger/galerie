@@ -4,6 +4,8 @@
   <tr>
     <th> <%= t "user.email" %> </th>
     <th> <%= t "user.name" %> </th>
+    <th> <%= t "user.role" %> </th>
+    <th> <%= t "user.status" %> </th>
   </tr>
   </thead>
   <tbody>
@@ -11,6 +13,8 @@
     <tr>
       <td><%= user.email %></td>
       <td><%= user.name %></td>
+      <td><%= user.role.capitalize %></td>
+      <td>Confirmed</td>
     </tr>
   <% end %>
   </tbody>

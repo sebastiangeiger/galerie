@@ -35,7 +35,7 @@ Then(/^I should see (\d+) user$/) do |size|
   page.all('table#users tbody tr').size.must_equal size.to_i
 end
 
-Then(/^I should see my email address$/) do
+Then(/^I should see my email address in the users table$/) do
   @user.wont_be_nil
   @user.email.wont_be :blank?
   within('table#users') do
@@ -43,10 +43,28 @@ Then(/^I should see my email address$/) do
   end
 end
 
-Then(/^I should see my name$/) do
+Then(/^I should see my name in the users table$/) do
   @user.wont_be_nil
   @user.name.wont_be :blank?
   within('table#users') do
     page.has_content?(@user.name).must_equal true
   end
+end
+
+Then(/^my role should be "(.*?)"$/) do |role|
+  @user.wont_be_nil
+  @user.email.wont_be :blank?
+  TableParser.new(page,"table#users").
+    find_row(email: @user.email).
+    find_column(:role).
+    text.must_equal(role)
+end
+
+Then(/^my status should be "(.*?)"$/) do |status|
+  @user.wont_be_nil
+  @user.email.wont_be :blank?
+  TableParser.new(page,"table#users").
+    find_row(email: @user.email).
+    find_column(:status).
+    text.must_equal(status)
 end
