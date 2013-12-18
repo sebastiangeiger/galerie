@@ -18,5 +18,6 @@ Feature: User management
     And I click on "New User"
     And I enter "someone@example.com" as email
     And I click on "Create User"
-    Then I should see 2 users
     Then I should see "someone@example.com" in the users table
+    And the role of "someone@example.com" should be "Artist"
+    And the status of "someone@example.com" should be "Not confirmed"

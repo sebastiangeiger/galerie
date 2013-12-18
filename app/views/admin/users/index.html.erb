@@ -15,7 +15,7 @@
       <td><%= user.email %></td>
       <td><%= user.name %></td>
       <td><%= user.role.capitalize %></td>
-      <td>Confirmed</td>
+      <td><%= t "user.status_values.#{user.confirmation_status}" %></td>
     </tr>
   <% end %>
   </tbody>

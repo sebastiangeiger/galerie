@@ -57,20 +57,28 @@ Then(/^I should see my name in the users table$/) do
   end
 end
 
+Then(/^the role of "(.*?)" should be "(.*?)"$/) do |email, role|
+  TableParser.new(page,"table#users").
+    find_row(email: email).
+    find_column(:role).
+    text.must_equal(role)
+end
+
 Then(/^my role should be "(.*?)"$/) do |role|
   @user.wont_be_nil
   @user.email.wont_be :blank?
+  step %{the role of "#{@user.email}" should be "#{role}"}
+end
+
+Then(/^the status of "(.*?)" should be "(.*?)"$/) do |email, status|
   TableParser.new(page,"table#users").
-    find_row(email: @user.email).
-    find_column(:role).
-    text.must_equal(role)
+    find_row(email: email).
+    find_column(:status).
+    text.must_equal(status)
 end
 
 Then(/^my status should be "(.*?)"$/) do |status|
   @user.wont_be_nil
   @user.email.wont_be :blank?
-  TableParser.new(page,"table#users").
-    find_row(email: @user.email).
-    find_column(:status).
-    text.must_equal(status)
+  step %{the status of "#{@user.email}" should be "#{status}"}
 end

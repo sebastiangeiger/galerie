@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
       false
     end
   end
+
+  def confirmation_status
+    confirmed? ? :confirmed : :not_confirmed
+  end
 end

@@ -25,4 +25,7 @@ en:
     name: Name
     role: Role
     status: Status
+    status_values:
+      confirmed: Confirmed
+      not_confirmed: Not confirmed
     create_new: New User

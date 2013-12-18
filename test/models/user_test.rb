@@ -7,6 +7,9 @@ describe User, "Factory" do
   it "is confirmed" do
     FactoryGirl.create(:user).must_be :confirmed?
   end
+  it "has a confirmation_status" do
+    FactoryGirl.create(:user).confirmation_status.must_equal :confirmed
+  end
   describe "regular user" do
     it "has a role" do
       FactoryGirl.create(:user).role.must_equal :user
