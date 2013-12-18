@@ -9,6 +9,7 @@ FactoryGirl.define do
     password VALID_PASSWORD
     name
     role "user"
+    confirmed_at Time.now
     factory :artist do
       role "artist"
     end

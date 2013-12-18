@@ -20,4 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  user:
+    email: Email
+    name: Name
+    role: Role
+    status: Status
+    create_new: New User

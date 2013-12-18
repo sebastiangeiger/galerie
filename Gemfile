@@ -44,6 +44,7 @@ end
 
 group :development do
   gem "pry-plus"
+  gem "launchy"
 end
 
 # Use ActiveModel has_secure_password

@@ -31,8 +31,14 @@ When(/^I go to the user management page$/) do
   visit '/admin/users'
 end
 
-Then(/^I should see (\d+) user$/) do |size|
+Then(/^I should see (\d+) users?$/) do |size|
   page.all('table#users tbody tr').size.must_equal size.to_i
+end
+
+Then(/^I should see "(.*?)" in the users table$/) do |text|
+  page.all('table#users tbody td').
+    select{|cell| cell.text.include? text}.
+    wont_be :empty?
 end
 
 Then(/^I should see my email address in the users table$/) do

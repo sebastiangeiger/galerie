@@ -4,6 +4,9 @@ describe User, "Factory" do
   it "has a name" do
     FactoryGirl.create(:user).name.wont_be :blank?
   end
+  it "is confirmed" do
+    FactoryGirl.create(:user).must_be :confirmed?
+  end
   describe "regular user" do
     it "has a role" do
       FactoryGirl.create(:user).role.must_equal :user

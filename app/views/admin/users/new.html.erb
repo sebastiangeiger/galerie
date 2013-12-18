@@ -1,0 +1,6 @@
+<%= t("user.create_new") %>
+<%= form_for [:admin, User.new] do |f| %>
+  <%= f.label :email, t("user.email") %>
+  <%= f.text_field :email %>
+  <%= f.submit %>
+<% end %>
