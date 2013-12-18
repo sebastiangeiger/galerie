@@ -4,9 +4,16 @@ FactoryGirl.define do
   VALID_PASSWORD = "mysecret"
   sequence(:email) { |i| "mail.address.#{i}@test.com" }
   sequence(:name) { |i| "User ##{i}" }
-  factory :user, aliases: [:seller] do
+  factory :user do
     email
     password VALID_PASSWORD
     name
+    role "user"
+    factory :artist do
+      role "artist"
+    end
+    factory :owner do
+      role "owner"
+    end
   end
 end

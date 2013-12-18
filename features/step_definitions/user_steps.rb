@@ -3,7 +3,7 @@ Given(/^I am not signed in$/) do
 end
 
 Given(/^I am signed in as an owner$/) do
-  @user = FactoryGirl.create(:user)
+  @user = FactoryGirl.create(:owner)
   sign_in_with(@user.email, @user.password)
 end
 

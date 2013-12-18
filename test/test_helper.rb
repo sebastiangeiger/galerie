@@ -6,6 +6,8 @@ require "minitest/rails"
 require "turn"
 Turn.config.format = :dot
 
+require "pry-rescue/minitest"
+
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 end
