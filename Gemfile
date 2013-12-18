@@ -43,7 +43,7 @@ group :test do
 end
 
 group :development do
-  gem "pry"
+  gem "pry-plus"
 end
 
 # Use ActiveModel has_secure_password
