@@ -21,3 +21,8 @@ Feature: User management
     Then I should see "someone@example.com" in the users table
     And the role of "someone@example.com" should be "Artist"
     And the status of "someone@example.com" should be "Not confirmed"
+    When I sign out
+    And "someone@example.com" clicks on the confirmation link in the email
+    And I sign back in as an owner
+    And I go to the user management page
+    Then the status of "someone@example.com" should be "Confirmed"

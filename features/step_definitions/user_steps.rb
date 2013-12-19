@@ -1,5 +1,5 @@
 Given(/^I am not signed in$/) do
-  visit '/users/sign_out'
+  step "sign out"
 end
 
 Given(/^I am signed in as an owner$/) do
@@ -81,4 +81,12 @@ Then(/^my status should be "(.*?)"$/) do |status|
   @user.wont_be_nil
   @user.email.wont_be :blank?
   step %{the status of "#{@user.email}" should be "#{status}"}
+end
+
+When(/^(?:|I )sign out$/) do
+  visit '/users/sign_out'
+end
+
+When(/^I sign back in as an owner$/) do
+  step "I am signed in as an owner"
 end
