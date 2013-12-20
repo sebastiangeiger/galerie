@@ -29,4 +29,10 @@ en:
       confirmed: Confirmed
       not_confirmed: Not confirmed
     create_new: New User
-    create_a_password: You're almost done! Now create a password to securely access your account.
+  confirmation_form:
+    call_to_action: You're almost done! Now create a password to securely access your account.
+    new_password: New password
+    confirm_new_password: Confirm new password
+    submit: Set my password
+  session:
+    require_not_signed_in: You cannot be signed in for this.

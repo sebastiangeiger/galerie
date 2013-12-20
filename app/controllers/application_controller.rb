@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
       before_filter the_proc
     end
   end
+
+  private
+  def require_not_signed_in
+    if signed_in?
+      flash[:alert] = t('session.require_not_signed_in')
+      redirect_to request.referrer || root_path
+    end
+  end
 end
 
 class RoleCollection
