@@ -3,6 +3,8 @@
   <%= devise_error_messages! %>
   <%= hidden_field_tag :confirmation_token, params[:confirmation_token] %>
 
+  <div><%= f.label :email, t('confirmation_form.email') %><br />
+  <%= f.text_field :email, disabled: true %></div>
   <div><%= f.label :password, t('confirmation_form.new_password') %><br />
   <%= f.password_field :password, :autofocus => true %></div>
   <div><%= f.label :password_confirmation, t('confirmation_form.confirm_new_password') %><br />

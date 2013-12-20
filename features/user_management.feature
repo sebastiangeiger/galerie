@@ -23,6 +23,7 @@ Feature: User management
     And the status of "someone@example.com" should be "Not confirmed"
     When I sign out
     And "someone@example.com" clicks on the confirmation link in the email
+    Then he should see "someone@example.com" in the email field
     And he enters "super_secret" as password
     And he enters "super_secret" as password confirmation
     And he clicks on "Set my password"

@@ -17,3 +17,7 @@ end
 When(/^he clicks on "(.*?)"$/) do |link_text|
   click_on link_text
 end
+
+Then(/^he should see "(.*?)" in the email field$/) do |text|
+  page.find("#user_email").value.must_equal text
+end
