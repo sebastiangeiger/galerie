@@ -1,0 +1,12 @@
+<h2><%= t("user.create_a_password") %></h2>
+<%= form_for(resource, :as => resource_name, :url => confirm_path, :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= hidden_field_tag :confirmation_token, params[:confirmation_token] %>
+
+  <div><%= f.label :password, "New password" %><br />
+  <%= f.password_field :password, :autofocus => true %></div>
+  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Set my password" %></div>
+<% end %>

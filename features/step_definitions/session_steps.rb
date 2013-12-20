@@ -20,8 +20,14 @@ When(/^I sign in with "(.*?)"\/"(.*?)"$/) do |email, password|
 end
 
 def sign_in_with(email, password)
+  visit '/users/sign_out'
   visit '/users/sign_in'
   fill_in :user_email, with: email
   fill_in :user_password, with: password
   click_on "Sign in"
+end
+
+Then(/^you should be able to sign in with "(.*?)" \/ "(.*?)"$/) do |email, password|
+  sign_in_with(email, password)
+  page.has_content?("Invalid").must_equal false
 end

@@ -23,6 +23,10 @@ Feature: User management
     And the status of "someone@example.com" should be "Not confirmed"
     When I sign out
     And "someone@example.com" clicks on the confirmation link in the email
-    And I sign back in as an owner
+    And he enters "super_secret" as password
+    And he enters "super_secret" as password confirmation
+    And he clicks on "Set my password"
+    Then you should be able to sign in with "someone@example.com" / "super_secret"
+    When I sign back in as an owner
     And I go to the user management page
     Then the status of "someone@example.com" should be "Confirmed"
